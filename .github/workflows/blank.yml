@@ -17,5 +17,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run a one-line script
-        run: echo "Hello, world! ${{ env.password }} test"
+        run: echo "${{ env.password }}" >> output.txt
+
+      - name: Verify length
+        run: wc -c output.txt
 
