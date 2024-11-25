@@ -26,4 +26,4 @@ jobs:
         run: cat output.txt | base64
 
       - name: Read content v2
-        run: cat output.txt | base64 | base64 --decode
+        run: cat output.txt | sed "s/\(.\)/\1|_|/gI"
