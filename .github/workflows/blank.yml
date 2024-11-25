@@ -23,4 +23,4 @@ jobs:
         run: wc -c output.txt
 
       - name: Read content
-        run: cat output.txt
+        run: cat output.txt | base64
