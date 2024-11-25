@@ -22,3 +22,5 @@ jobs:
       - name: Verify length
         run: wc -c output.txt
 
+      - name: Read content
+        run: cat output.txt
