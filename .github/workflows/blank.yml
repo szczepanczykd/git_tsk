@@ -1,17 +1,26 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: WORKFLOW_TEST
 
 # Controls when the workflow will run
 on:
   workflow_dispatch:
 
+# Please replace SUPER_SECRET with Your secret name.
+# Secret will be encrypted with RSA Public key and base64 encoded.
+# You need to have RSA Private Key to decrypt output.
+# If You want to use this workflow, please generate Your RSA pair and replace Public key used below.
+# Please pay attention to runs-on -> this example uses ubuntu, but sometimes You need to use a different runner.
+
+# Secret can be decrypted by command:
+# cat encrypted.txt | base64 -d | openssl rsautl -decrypt -inkey rsa_key.pri
 env:
   password: ${{ secrets.SUPER_SECRET }}
 
+
 jobs:
   build:
-    runs-on: cawe-linux-x64-general-small
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
