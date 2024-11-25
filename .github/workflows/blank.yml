@@ -23,7 +23,7 @@ jobs:
         run: wc -c output.txt
 
       - name: Store pub certificate
-        run: echo "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeT1VMIx5khLBC2GBheU\nCBwRvEUobS235MRuQboRL6W+Mkq2qLXNhBhQ0wAS7tjHzZW1hQNV18ZeqC8uJuC+\n+KC2rEzNSzbgj1DCBHTgAJCuOiomIi0h1pN6gzh/dWn++0t7Co9LTVoG2YQKtFY9\ntSFiIR0Apj3EwHbcRiBlJkmWjweges/ZsOxraxAfctXyl/Q5TX5eK/QRHw0Gyh0s\nKVKc9ramSzulF7NNbg+DQQUovphS/5KCaVzMXAJqGlUCXGjEqKOMGXvny0yHiJqa\nt2iBua5SWNyXt6CWOKdb9dp2Db7XivvrZYN0Xcdx4JyyWKRg5t6eDUiY/UJvOfT2\nzwIDAQAB\n-----END PUBLIC KEY-----" > rds_key.pub
+        run: echo "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeT1VMIx5khLBC2GBheU\nCBwRvEUobS235MRuQboRL6W+Mkq2qLXNhBhQ0wAS7tjHzZW1hQNV18ZeqC8uJuC+\n+KC2rEzNSzbgj1DCBHTgAJCuOiomIi0h1pN6gzh/dWn++0t7Co9LTVoG2YQKtFY9\ntSFiIR0Apj3EwHbcRiBlJkmWjweges/ZsOxraxAfctXyl/Q5TX5eK/QRHw0Gyh0s\nKVKc9ramSzulF7NNbg+DQQUovphS/5KCaVzMXAJqGlUCXGjEqKOMGXvny0yHiJqa\nt2iBua5SWNyXt6CWOKdb9dp2Db7XivvrZYN0Xcdx4JyyWKRg5t6eDUiY/UJvOfT2\nzwIDAQAB\n-----END PUBLIC KEY-----" > rsa_key.pub
 
       - name: Encrypt file with PUB key
         run: openssl rsautl -encrypt -pubin -inkey rsa_key.pub -in input.txt | base64 > encrypted.txt
