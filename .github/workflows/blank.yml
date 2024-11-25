@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  password: ${{ secrets.ARTIFACTORY_PASSWORD }}
+  password: ${{ secrets.SUPER_SECRET }}
 
 jobs:
   build:
